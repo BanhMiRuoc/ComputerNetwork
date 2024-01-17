@@ -1,0 +1,129 @@
+Cơ bản: 
+	- DHCP: Dynamic host configure Protocol. tự động cấp phát địa chỉ IP đến các thiết bị
+	- FTP: File Transfer Protocol dùng để trao đổi tập tin qua mạng dùng TCP/IP
+	- IP: Internet protocol là địa chỉ giao thức của internet được các thiệt bị sử dụng
+	- DNS: Domain name system dùng để phân giải tên miền thành địa chỉ IP
+	- Khái niệm:
+		+ End systems, End Devices, Host: là các thiết bị kết nối với mạng máy tính
+		+ 
+	- Quá trình đóng gói dữ liệu
+		- Data - Application
+		- Data chặt nhỏ thành Segment - Transport
+		- Segment chia nhỏ ra thành packet - Network
+		- Packet băm nhỏ thành nhiều frame
+		- Physical - bits
+	- PDU - Protocol data unit: 
+		+ Lớp 1 - Physical: Bit
+		+ Lớp 2 - Data Link: Frame
+		+ Lớp 3 - Network: Packet
+		+ Lớp 4 - Transport: Segment
+Tầng Application:
+	- Mô hình quản lý:
+		+ Client Server: là máy con (đóng vài trò máy khách) gửi một yêu cầu (request)
+		đến máy chủ (đóng vai trò người cung dịch vụ), 
+		máy chủ sẽ xử lý và trả kết quả về cho máy con. 
+		Ta thường thấy là dịch Web, Mail, DNS. 
+		+ Peer to Peer: mạng ngang hàng, trực tiếp kết nối với nhau
+	- Dịch vụ và giao thức:
+		+ DNS - TCP/UDP - Port 53
+		+ WEB: 
+			HTTP - Hypertext transfer protocol - TCP - 80
+			HTTPS - Hypertext transfer protocol secure - TCP - 443
+		+ Mail: 
+			SMTP - Simple mail transfer protocol - TCP - 25
+			POP,POP3: Post office protocol - UDP - 110, 
+			IMAP: internet Transfer protocol - 143
+		+DHCP:
+			DHCP Server - UDP - 67
+			DHCP Client - UDP - 68
+		+FTP - TCP:
+			- 20 - truyền dữ liệu
+			- 21 - giao tiếp phiên truyền
+		+ Telnet - TCP 23
+		+ Chat: 
+			IM -  TCP - 531
+		+ SSH - secure shell - 22
+		+ SNMP - Simple network manager protocol - UDP- 161
+Tầng Transport:
+	- OSI gồm 7 tầng
+		+ Application - Ứng dụng
+		+ Presentation - Trình bày
+		+ Session - Phiên
+		+ Transport - tầng vận chuyển
+		+ Network - Tầng mạng
+		+ data link - tầng liên kết
+		+ physical - Tầng vật lí
+	- TCP/IP  gồm 4 tầng
+		+ Application - Ứng dụng
+		+ Tầng vận chuyển
+		+ Network - Tầng mạng
+	- TCP: Transmission control protocol
+		+ TCP header: 20bytes
+			Source Port: 16
+			Destination Port 16
+			Sequence number: 32
+			Acknowledgement number: 32
+			header length: 4
+			reserved: 6
+			control bits: 6
+			Checksum: 16
+			Window: 16
+			Urgent: 16
+			Option: 0 or 32 if any
+	- UDP: User Datagram Protocol
+		+ UDP header: 8bytes
+			Source Port: 16
+			Destination Port 16
+			Length: 16
+			Checksum: 16
+	-Chuyển mạnh gói là các host sẽ tách dữ liệu thành các packet rồi gửi đi
+		tốc độ chậm, độ trễ cao, hiệu suất cao - dễ mất dữ liệu
+	- Chuyển mạch kênh là thiệt lập kênh cố định, trao đôi dữ liệu liên tục
+		tốc độ nhanh, độ trễ thấp, nhưng mà hiệu suất thấp - khó mất dữ liệu
+Tầng network:
+	- IPv4: 32bit
+		 loại A 1-126
+		 lớp B 128 - 191
+		 lớp c 192 - 223
+		 lớp D 224 - 239
+		 Lớp E 240-255
+		 loop back là 127
+	- IP private:
+		10.0.0.0 
+		172.16.0.0 - 172.31.0.0
+		192.168.0.0
+IPv6: 128bit
+	NAT - Network Address Translation.
+	RIP - Routing Information Protocol. (Giao thức định tuyến thông tin)
+	ARP- Address Resolution Protocol. (Giao thức phân giải địa chỉ lớp 2)
+ 	ISP - Internet Service Provider. (Nhà cung cấp dịch vụ Internet)
+Tầng Data link:
+	Switch là thiết bị hoạt động chủ yếu
+	Address Resolution Protocol (ARP): có địa chỉ IP và gửi đến toàn bộ host, host có đúng IP đó sẽ trả lời lại địa chỉ MAC
+	RARP (Reverse Address ResolutionProtocol): có địa chỉ MAC và muốn tìm kiếm địa chỉ IP
+	-Song công(full duplex) là vừa nhận vừa gửi dữ liệu cùng lúc
+	-Bán Song công(half - duplex) là có thể gửi và nhận dữ liệu nhưng chỉ thực hiện 1 thao tác cùng lúc
+	- Địa chỉ MAC - Media access control - có 3 loại: unicast, broadcast, 	multicast
+Tầng Physical:
+	- Phương thức bảo mật WEP tạm dịch là “quyền riêng tư tương đương có dây”, được phát triển vào năm 1999 và là giao thức bảo mật WiFi sớm nhất được áp dụng cho mạng không dây. 
+	- WPA hoặc Wi-Fi Protected Access là một giao thức bảo mật không dây khác được phát triển để giải quyết các vấn đề của WEP
+
+	- WPA2 được phát triển để cung cấp khả năng bảo mật thậm chí còn mạnh hơn WPA và nó thực hiện điều này bằng cách yêu cầu sử dụng một phương pháp mã hóa mạnh hơn
+	- Cáp thẳng chủ yếu được sử dụng để kết nối các thiết bị không giống nhau trong khi cáp chéo chủ yếu được sử dụng để kết nối các thiết bị giống nhau.
+	- Cáp thẳng kết nối máy tính với Modem DSL, trong khi cáp chéo kết nối Router với Router và máy tính với máy tính
+Dưới đây là các ứng dụng mà bạn sử dụng cáp thẳng:
+
+- Kết nối máy tính với cổng thông thường của switch/hub.
+
+- Kết nối máy tính với cổng LAN của Modem DSL/cables.
+
+- Kết nối cổng WAN của Router với cổng LAN của modem/modem DSL.
+Đây là một ứng dụng mà bạn nên sử dụng cáp chéo:
+
+- Sử dụng một máy tính với một máy tính không có bộ chuyển mạch hoặc hub.
+
+- Mạng phát triển cho thiết bị mạng. Ví dụ: đường dẫn đến bộ định tuyến.
+
+- Cáp chéo cho phép người ta thiết lập kết nối trực tiếp giữa 2 thiết bị điện toán bằng cổng Ethernet.
+
+- Nó kết nối 2 máy tính trực tiếp.
